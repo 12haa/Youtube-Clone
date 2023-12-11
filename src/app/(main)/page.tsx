@@ -1,5 +1,8 @@
 export default function Home() {
-    return (
-        <>Youtube Clone</>
-    )
+  return (
+    <>
+      Youtube Clone
+      <p>hiiiiiiiiiiii</p>
+    </>
+  );
 }
