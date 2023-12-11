@@ -98,7 +98,7 @@ const TopNavigation = () => {
             <DropdownMenu>
               <DropdownMenuTrigger className="focus:outline-none">
                 <Avatar className="">
-                  <AvatarImage src="" alt="avatar" />
+                  <AvatarImage src="human.jpg" alt="avatar" />
                   <AvatarFallback>AB</AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
@@ -107,7 +107,7 @@ const TopNavigation = () => {
                   {/*DROPDOWN MENU*/}
                   <div className="flex space-x-4">
                     <Avatar className="">
-                      <AvatarImage src="" alt="avatar" />
+                      <AvatarImage src="human.jpg" alt="avatar" />
                       <AvatarFallback>AB</AvatarFallback>
                     </Avatar>
                     <div className="flex flex-col scroll-py-3 text-base  ">
