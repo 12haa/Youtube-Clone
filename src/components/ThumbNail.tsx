@@ -2,6 +2,8 @@ import { Video } from "../../types/custom_types";
 import Image from "next/image";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { formatCount, formatPublishedDate } from "@/lib/utils";
+import { Dot } from "lucide-react";
 
 const ThumbNail = ({ video }: { video: Video }) => {
   return (
@@ -33,7 +35,11 @@ const ThumbNail = ({ video }: { video: Video }) => {
           <p className="text-sm text-background-dark dark:text-background-light ">
             {video.channelTitle.channelTitle}
           </p>
-          <div className="flex space-x-2 text-sm dark:text-background-light text-background-dark"></div>
+          <div className="flex space-x-2 text-sm dark:text-background-light text-background-dark">
+            <p>{formatCount(+video.viewCount)} views</p>
+            <Dot />
+            <p>{formatPublishedDate(video.publishedAt)} ago</p>
+          </div>
         </div>
       </div>
     </Link>
