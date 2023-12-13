@@ -49,7 +49,7 @@ const TopNavigation = () => {
           >
             <input
               type="search"
-              placeholder="searchr"
+              placeholder="search"
               ref={searchInputRef}
               className="px-4 h-full md:w-48 lg:w-96 border dark:border-gray-50 border-gray-300 rounded-l-full focus:outline-none dark:bg-black bg-white"
             />
@@ -82,7 +82,7 @@ const TopNavigation = () => {
                 >
                   <input
                     type="search"
-                    placeholder="searchr"
+                    placeholder="search"
                     ref={searchInputRef}
                     className="px-4 h-full md:w-48 lg:w-96 border dark:border-gray-50 border-gray-300 rounded-l-full focus:outline-none dark:bg-black bg-white"
                   />

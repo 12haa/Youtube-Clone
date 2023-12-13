@@ -23,7 +23,7 @@ const Sidebar = ({ className }: Props) => {
   return (
     <ScrollArea
       className={cn(
-        "h-screen w-60 pt-3 z-40 !fixed hidden md:block top-0 dark:bg-black dark:text-white bg-white text-black -translate-x-full transition-transform duration-500",
+        "h-screen  w-60 pt-3 z-40 !fixed hidden md:block top-0 dark:bg-black dark:text-white bg-white text-black -translate-x-full transition-transform duration-500",
         className,
       )}
     >
