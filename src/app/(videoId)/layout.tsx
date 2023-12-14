@@ -8,8 +8,8 @@ export default function RootLayout({
 }) {
   return (
     <>
-      {children}
       <VideoIdNavigation />
+      {children}
     </>
   );
 }
