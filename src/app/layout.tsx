@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/Providers/theme-provider";
 import TopNavigation from "@/components/TopNavigation";
 import FooterMenu from "@/components/FooterMenu";
+import ContextProvider from "@/components/Providers/ContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,9 +27,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="pt-0">{children}</main>
-          <TopNavigation />
-          <FooterMenu />
+          <ContextProvider>
+            <main className="pt-0">{children}</main>
+            <TopNavigation />
+            <FooterMenu />
+          </ContextProvider>
         </ThemeProvider>
       </body>
     </html>

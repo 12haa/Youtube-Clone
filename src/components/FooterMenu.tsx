@@ -19,7 +19,10 @@ const FooterMenu = () => {
         <span className="text-sm">Subscriptions</span>
       </div>
 
-      <Link href={`/channels/`} className="flex flex-col items-center">
+      <Link
+        href={`/channels/${process.env.NEXT_PUBLIC_CHANNEL_ID}`}
+        className="flex flex-col items-center"
+      >
         <Avatar className="w-6 h-6">
           <AvatarFallback>A</AvatarFallback>
         </Avatar>

@@ -5,7 +5,7 @@ import { fetchVideos } from "@/lib/api";
 import ThumbNail from "@/components/ThumbNail";
 import Loading from "@/app/loading";
 import { SearchBadge } from "@/components/SearchBadge";
-
+// TODO 2 07 27
 export default function Home() {
   const [badge, setBadge] = useState("All");
   // FETCHING Videos

@@ -115,7 +115,10 @@ const TopNavigation = () => {
                         <p>Mohammad </p>
                         <p>@12haa</p>
                       </span>
-                      <Link href={`/channels`} className="text-blue-500">
+                      <Link
+                        href={`/channels/${process.env.NEXT_PUBLIC_CHANNEL_ID}`}
+                        className="text-blue-500"
+                      >
                         View Your Channel
                       </Link>
                     </div>
