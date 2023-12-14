@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/Providers/theme-provider";
 import TopNavigation from "@/components/TopNavigation";
 import FooterMenu from "@/components/FooterMenu";
 import ContextProvider from "@/components/Providers/ContextProvider";
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 

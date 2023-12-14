@@ -1,10 +1,15 @@
 import React from "react";
+import VideoIdNavigation from "@/components/VideoIdNavigation";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <VideoIdNavigation />
+    </>
+  );
 }
-//FIXME: 1 50 30

@@ -56,3 +56,51 @@ export async function fetchVideos(query: string, maxResult: number) {
     throw error;
   }
 }
+
+export async function fetchVideoDetails(videoId: string) {
+  try {
+    const { data } = await axios.get(
+      `${BASE_URL}/videos?key=${API_KEY}&id=${videoId}&part=snippet,statistics`,
+    );
+
+    const videoData = data.items[0].snippet;
+
+    const channelData = await fetchChannelDetails(videoData.channelId);
+
+    const videoDetails = {
+      title: videoData.title,
+      videoUrl: `${process.env.NEXT_PUBLIC_VIDEO_BASE_URL}${videoId}`,
+      likes: data.items[0].statistics.likeCount,
+      description: videoData.description,
+      publishedDate: videoData.publishedAt,
+      channelImage: channelData.channelImage,
+      channelName: channelData.channelName,
+      subscribersCount: channelData.subscribersCount,
+    };
+
+    return videoDetails;
+  } catch (error) {
+    console.error("ERROR FETCHING VIDEO DETAILS", error);
+  }
+}
+async function fetchChannelDetails(channelId: string): Promise<{
+  channelName: string;
+  subscribersCount: string;
+  channelImage: string;
+}> {
+  const { data } = await axios.get(
+    `${BASE_URL}/channels?key=${API_KEY}&id=${channelId}&part=snippet,statistics`,
+  );
+
+  const channelDetails: {
+    channelName: string;
+    subscribersCount: string;
+    channelImage: string;
+  } = {
+    channelName: data.items[0].snippet.title,
+    subscribersCount: data.items[0].statistics.subscriberCount,
+    channelImage: data.items[0].snippet.thumbnails.medium.url,
+  };
+
+  return channelDetails;
+}

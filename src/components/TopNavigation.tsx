@@ -2,7 +2,7 @@
 
 import { Bell, Menu, Search, Video, Youtube } from "lucide-react";
 import Link from "next/link";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useContext, useRef, useState } from "react";
 import { ThemeProvider } from "@/components/Providers/theme-provider";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -14,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import AppContext from "@/context/appContext";
 
 const TopNavigation = () => {
   // DIALOG States
@@ -26,12 +27,16 @@ const TopNavigation = () => {
       console.log(searchInputRef.current.value);
     }
   };
+  const { showNav, setShowNav } = useContext(AppContext);
   return (
     <nav className="fixed top-0 left-0 w-screen z-20 dark:bg-black bg-white">
       <div className="flex justify-between items-center px-2 md:px-7 h-16 ">
         <div className="flex items-center">
           <span className="hover:bg-background-dark/30 md:block hidden hover:text-white cursor-pointer rounded-full p-2 m-1 ">
-            <Menu size={30} />
+            <Menu
+              onClick={() => setShowNav((prevState) => !prevState)}
+              size={30}
+            />
           </span>
 
           <Link href={"/"} className="flex items-center space-x-2">

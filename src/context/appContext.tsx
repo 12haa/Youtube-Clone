@@ -7,6 +7,6 @@ type AppContextType = {
 
 const AppContext = createContext<AppContextType>({
   showNav: false,
-  setShowNav: () => {},
+  setShowNav: () => null,
 });
 export default AppContext;
