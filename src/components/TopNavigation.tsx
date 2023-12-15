@@ -15,16 +15,19 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import AppContext from "@/context/appContext";
+import { useRouter } from "next/navigation";
 
 const TopNavigation = () => {
   // DIALOG States
   const [dialogOpen, setDialogOpen] = useState(false);
-
+  const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (searchInputRef.current) {
-      console.log(searchInputRef.current.value);
+      const searchQuery = searchInputRef.current.value;
+      setDialogOpen(false);
+      router.push(`/search?query=${searchQuery}`);
     }
   };
   const { showNav, setShowNav } = useContext(AppContext);
@@ -132,7 +135,7 @@ const TopNavigation = () => {
                 <DropdownMenuSeparator />
                 {/*  THEME TOGGLE FOR DESKTOP*/}
                 <div className="p-2 flex items-center ">
-                  <span className="mr-2 ">Appearence:</span>
+                  <span className="mr-2 ">Appearance:</span>
                   <ThemeToggle />
                 </div>
               </DropdownMenuContent>
